@@ -13,5 +13,11 @@ namespace TVProject.Web.Controllers
         {
             return View();
         }
+
+        // About
+        public ActionResult About()
+        {
+            return View();
+        }
     }
 }

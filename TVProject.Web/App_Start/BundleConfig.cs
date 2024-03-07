@@ -11,6 +11,8 @@ namespace TVProject.Web.App_Start
     {
         public static void RegisterBundles(BundleCollection bundles)
         {
+            //--CSS--
+
             //bootstrap core css
             bundles.Add(new StyleBundle("~/bundles/bootstrap/css").Include("~/Vendors/css/bootstrap.css", new CssRewriteUrlTransform()));
 
