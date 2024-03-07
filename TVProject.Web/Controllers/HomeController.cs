@@ -19,5 +19,11 @@ namespace TVProject.Web.Controllers
         {
             return View();
         }
+
+        // Treatment
+        public ActionResult Treatment()
+        {
+            return View();
+        }
     }
 }
