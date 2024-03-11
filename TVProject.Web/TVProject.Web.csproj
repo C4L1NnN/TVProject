@@ -261,6 +261,8 @@
     <Content Include="Scripts\bootstrap.bundle.js.map" />
     <Content Include="Views\Home\Treatment.cshtml" />
     <Content Include="Views\Shared\_LayoutTreatment.cshtml" />
+    <Content Include="Views\Shared\_LayoutLogin.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
