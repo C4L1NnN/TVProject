@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using TVProject.BusinessLogic;
 using TVProject.BusinessLogic.Interfaces;
 using TVProject.Domain.Entities.User;
+using TVProject.Web.Models;
 
 namespace TVProject.Web.Controllers
 {
@@ -24,11 +25,11 @@ namespace TVProject.Web.Controllers
             return View();
         }
 
-/*        [HttpPost]
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Login(UserLogin login)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 ULoginData data = new ULoginData
                 {
@@ -53,7 +54,7 @@ namespace TVProject.Web.Controllers
             }
 
             return View();
-        }*/
+        }
 
     }
 
