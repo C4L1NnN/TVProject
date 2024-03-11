@@ -26,10 +26,5 @@ namespace TVProject.Web.Controllers
             return View();
         }
 
-        //Login
-        public ActionResult Login()
-        {
-            return View();
-        }
     }
 }
