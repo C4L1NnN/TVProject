@@ -53,7 +53,7 @@ namespace TVProject.Web.Controllers
                                 }*/
 
                 // Check if the provided credentials are valid
-                if (login.Credential == "User1" && login.Password == "user")
+                if (login.Credential == "user1" && login.Password == "user")
                 {
                     // Authentication successful, redirect to home page
                     return RedirectToAction("Index", "Home");
