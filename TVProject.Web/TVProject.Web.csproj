@@ -224,9 +224,12 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\UserData.cs" />
+    <Compile Include="Models\UserLogin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -261,6 +264,8 @@
     <Content Include="Scripts\bootstrap.bundle.js.map" />
     <Content Include="Views\Home\Treatment.cshtml" />
     <Content Include="Views\Shared\_LayoutTreatment.cshtml" />
+    <Content Include="Views\Shared\_LayoutLogin.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -270,7 +275,16 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TVProject.BusinessLogic\TVProject.BusinessLogic.csproj">
+      <Project>{25bc6a1c-03ac-4c7f-b1a9-fd8d9d3b008d}</Project>
+      <Name>TVProject.BusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TVProject.Domain\TVProject.Domain.csproj">
+      <Project>{a87b049f-05a9-41fa-ac37-55ff16de88b6}</Project>
+      <Name>TVProject.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,0 +1,66 @@
+﻿@using System.Web.Optimization
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Site Metas -->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>Mico</title>
+
+
+    <!-- bootstrap core css -->
+    @Styles.Render("~/bundles/bootstrap/css")
+    <!-- fonts style -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+    <!--owl slider stylesheet -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+    <!-- font awesome style -->
+    @Styles.Render("~/bundles/font-awesome/css")
+    <!-- nice select -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha256-mLBIhmBvigTFWPSCtvdu6a76T+3Xyt+K571hupeFLg4=" crossorigin="anonymous" />
+    <!-- datepicker -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css">
+    <!-- Custom styles for this template -->
+    @Styles.Render("~/bundles/style/css")
+    <!-- responsive style -->
+    @Styles.Render("~/bundles/responsive/css")
+
+</head>
+
+<body class="sub_page">
+
+    <div class="hero_area">
+        @Html.Partial("_Header")
+    </div>
+
+    @RenderBody()
+
+    <footer class="footer_section">
+        @Html.Partial("_Footer")
+    </footer>
+
+    <!-- jQery -->
+    @Scripts.Render("~/bundles/jqery/js")
+    <!-- bootstrap js -->
+    @Scripts.Render("~/bundles/bootstrap/js")
+    <!-- nice select -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js" integrity="sha256-Zr3vByTlMGQhvMfgkQ5BtWRSKBGa2QlspKYJnkjZTmo=" crossorigin="anonymous"></script>
+    <!-- owl slider -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <!-- datepicker -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
+    <!-- custom js -->
+    @Scripts.Render("~/bundles/custom/js")
+
+</body>
+</html>

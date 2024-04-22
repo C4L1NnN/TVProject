@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TVProject.Web.Models;
 
 namespace TVProject.Web.Controllers
 {
@@ -11,7 +12,14 @@ namespace TVProject.Web.Controllers
         // GET: Home
         public ActionResult Index()
         {
+/*            UserData u = new UserData();
+            u.Username = "User1";
+            u.Password = "user";
+
+
+            return View(u);*/
             return View();
+
         }
 
         // About
@@ -25,5 +33,6 @@ namespace TVProject.Web.Controllers
         {
             return View();
         }
+
     }
 }

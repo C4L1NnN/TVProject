@@ -1,37 +1,87 @@
-﻿  @{ 
-      Layout = "~/Views/Shared/_LayoutAbout.cshtml";
-  }
-    
-    <!-- about section -->
+﻿@{
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+    //ViewBag.Title = "Home";
+}
+
+@model TVProject.Web.Models.UserLogin
+
+<!-- login section -->
 
 <section class="about_section layout_padding">
-    <div class="container  ">
-        <div class="row">
-            <div class="col-md-6 ">
-                <div class="img-box">
-                    <img src="~/images/about-img.jpg" alt="">
+    <div class="container">
+        @using (Html.BeginForm("Login", "Login", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+
+            <div style="padding: 20px; background: #00c6a9; color: white; margin: auto; text-align: center;">
+                <div style="padding: 10px">
+                    <h1>Authorization page</h1>
                 </div>
-            </div>
-            <div class="col-md-6">
-                <div class="detail-box">
-                    <div class="heading_container">
-                        <h2>
-                            About <span>Hospital</span>
-                        </h2>
+
+                <div style="width: fit-content; margin: auto; padding: 10px">
+                    @Html.LabelFor(m => m.Credential, new { style = "text-align: left; width: 100%" })
+                    <br />
+                    @Html.TextBoxFor(m => m.Credential, new { style = "padding: 10px 20px; border: none; outline: none;" })
+                </div>
+                <div style="width: fit-content; margin: auto; padding: 10px">
+                    @Html.LabelFor(m => m.Password, new { style = "text-align: left; width: 100%" })
+                    <br />
+                    @Html.PasswordFor(m => m.Password, new { style = "padding: 10px 20px; border: none; outline: none;" })
+                </div>
+
+                <div style="width: fit-content; margin: auto; padding: 10px">
+                    <input type="submit" value="Login" style="margin: 10px; padding: 10px 25px; border: none; outline: none" />
+                    <input type="submit" value="Sign up" style="margin: 10px; padding: 10px 25px; border: none; outline: none" />
+
+                </div>
+
+                @if (!ViewData.ModelState.IsValid)
+                {
+                    <div style="color: red; padding: 10px;">
+                        Incorrect username or password.
                     </div>
-                    <p>
-                        has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors
-                    </p>
-                    <a href="">
-                        Read More
-                    </a>
+                }
+
+                <div style="width: fit-content; margin: auto; padding: 10px">
+                    <a href="" style="color: gray; text-decoration: underline;">Forgot password ?</a>
                 </div>
             </div>
-        </div>
+        }
     </div>
 </section>
 
-<!-- end about section -->
+
+@*<section class="about_section layout_padding">
+    <div class="container">
+        <div style="padding: 20px; background: #00c6a9; color: white; margin: auto; text-align: center;">
+            <div style="padding: 10px">
+                <h1>Authorization page</h1>
+            </div>
+
+            <div style="width: fit-content; margin: auto; padding: 10px">
+                <label for="username" style="text-align: left; width: 100%">Username</label><br>
+                <input type="text" name="username" style="padding: 10px 20px; border: none; outline: none;">
+            </div>
+            <div style="width: fit-content; margin: auto; padding: 10px">
+                <label for="username" style="text-align: left; width: 100%">Password</label><br>
+                <input type="text" name="username" style="padding: 10px 20px; border: none; outline: none;">
+            </div>
+
+            <div style="width: fit-content; margin: auto; padding: 10px">
+                <input type="submit" value="Login" style="margin: 10px; padding: 10px 25px; border: none; outline: none">
+                <input type="submit" value="Sign up" style="margin: 10px; padding: 10px 25px; border: none; outline: none">
+            </div>
+
+            <div style="width: fit-content; margin: auto; padding: 10px">
+                <a href="" style="color: gray; text-decoration: underline;">Forgot password ?</a>
+            </div>
+
+
+        </div>
+    </div>
+</section>*@
+
+<!-- end login section -->
 <!-- info section -->
 <section class="info_section ">
     <div class="container">
@@ -97,13 +147,13 @@
                             Useful link
                         </h5>
                         <div class="info_links_menu">
-                            <a href="@Url.Action("Index","Home")">
+                            <a href="/Home">
                                 Home
                             </a>
-                            <a class="active" href="@Url.Action("About","Home")">
+                            <a class="active" href="/Home/About">
                                 About
                             </a>
-                            <a href="@Url.Action("Treatment","Home")">
+                            <a href="/Home/Treatment">
                                 Treatment
                             </a>
                             <a href="doctor.html">
