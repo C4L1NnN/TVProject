@@ -31,38 +31,38 @@ namespace TVProject.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                /*                ULoginData data = new ULoginData
-                                {
-                                    Credential = login.Credential,
-                                    Password = login.Password,
-                                    LoginIP = login.LoginIP,
-                                    LoginDataTime = DateTime.Now,
-                                };
-
-                                var userLogin = _session.UserLogin(data);
-                                if (userLogin.Status)
-                                {
-                                    //ADD COOKIE
-
-                                    return RedirectToAction("Index", "Home");
-                                }
-                                else
-                                {
-                                    ModelState.AddModelError("", userLogin.StatusMsg);
-                                    return View();  
-                                }*/
-
-                // Check if the provided credentials are valid
-                if (login.Credential == "user1" && login.Password == "user")
+                ULoginData data = new ULoginData
                 {
-                    // Authentication successful, redirect to home page
+                    Credential = login.Credential,
+                    Password = login.Password,
+                    LoginIP = login.LoginIP,
+                    LoginDataTime = DateTime.Now,
+                };
+
+                var userLogin = _session.UserLogin(data);
+                if (userLogin.Status)
+                {
+                    //ADD COOKIE
+
                     return RedirectToAction("Index", "Home");
                 }
                 else
                 {
-                    // Invalid credentials, add an error message
-                    ModelState.AddModelError("", "Incorrect username or password");
+                    ModelState.AddModelError("", userLogin.StatusMsg);
+                    return View();
                 }
+
+                // Check if the provided credentials are valid
+                //if (login.Credential == "user1" && login.Password == "user")
+                //{
+                //    // Authentication successful, redirect to home page
+                //    return RedirectToAction("Index", "Home");
+                //}
+                //else
+                //{
+                //    // Invalid credentials, add an error message
+                //    ModelState.AddModelError("", "Incorrect username or password");
+                //}
             }
 
             return View(login);
