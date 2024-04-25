@@ -3,83 +3,96 @@
     //ViewBag.Title = "Home";
 }
 
-@model TVProject.Domain.Entities.User.ULoginData
+@model TVProject.Domain.Entities.User.URegData
 
 <!-- login section -->
 
 <section class="about_section layout_padding">
     <div class="container">
-        @using (Html.BeginForm("Login", "Login", FormMethod.Post))
+        @using (Html.BeginForm("Index", "Register", FormMethod.Post))
         {
             @Html.AntiForgeryToken()
 
-            <div style="padding: 20px; background: #00c6a9; color: white; margin: auto; text-align: center;">
-                <div style="padding: 10px">
-                    <h1>Authorization page</h1>
-                </div>
-
-                <div style="width: fit-content; margin: auto; padding: 10px">
-                    @Html.LabelFor(m => m.Credential, new { style = "text-align: left; width: 100%" })
-                    <br />
-                    @Html.TextBoxFor(m => m.Credential, new { style = "padding: 10px 20px; border: none; outline: none;" })
-                </div>
-                <div style="width: fit-content; margin: auto; padding: 10px">
-                    @Html.LabelFor(m => m.Password, new { style = "text-align: left; width: 100%" })
-                    <br />
-                    @Html.PasswordFor(m => m.Password, new { style = "padding: 10px 20px; border: none; outline: none;" })
-                </div>
-
-                <div style="width: fit-content; margin: auto; padding: 10px">
-                    <input type="submit" value="Login" style="margin: 10px; padding: 10px 25px; border: none; outline: none" />
-                    <input type="submit" value="Sign up" style="margin: 10px; padding: 10px 25px; border: none; outline: none" />
-
-                </div>
-
-                @if (!ViewData.ModelState.IsValid)
-                {
-                    <div style="color: red; padding: 10px;">
-                        Incorrect username or password.
-                    </div>
-                }
-
-                <div style="width: fit-content; margin: auto; padding: 10px">
-                    <a href="" style="color: gray; text-decoration: underline;">Forgot password ?</a>
-                </div>
-            </div>
-        }
-    </div>
-</section>
-
-
-@*<section class="about_section layout_padding">
-    <div class="container">
         <div style="padding: 20px; background: #00c6a9; color: white; margin: auto; text-align: center;">
             <div style="padding: 10px">
                 <h1>Authorization page</h1>
             </div>
 
             <div style="width: fit-content; margin: auto; padding: 10px">
-                <label for="username" style="text-align: left; width: 100%">Username</label><br>
-                <input type="text" name="username" style="padding: 10px 20px; border: none; outline: none;">
-            </div>
-            <div style="width: fit-content; margin: auto; padding: 10px">
-                <label for="username" style="text-align: left; width: 100%">Password</label><br>
-                <input type="text" name="username" style="padding: 10px 20px; border: none; outline: none;">
+                @Html.LabelFor(m => m.Credential, new { style = "text-align: left; width: 100%" })
+                <br />
+                @Html.TextBoxFor(m => m.Credential, new { style = "padding: 10px 20px; border: none; outline: none;" })
             </div>
 
             <div style="width: fit-content; margin: auto; padding: 10px">
-                <input type="submit" value="Login" style="margin: 10px; padding: 10px 25px; border: none; outline: none">
-                <input type="submit" value="Sign up" style="margin: 10px; padding: 10px 25px; border: none; outline: none">
+                @Html.LabelFor(m => m.Email, new { style = "text-align: left; width: 100%" })
+                <br />
+                @Html.TextBoxFor(m => m.Email, new { style = "padding: 10px 20px; border: none; outline: none;" })
             </div>
+
+            <div style="width: fit-content; margin: auto; padding: 10px">
+                @Html.LabelFor(m => m.Password, new { style = "text-align: left; width: 100%" })
+                <br />
+                @Html.PasswordFor(m => m.Password, new { style = "padding: 10px 20px; border: none; outline: none;" })
+            </div>
+
+            <div style="width: fit-content; margin: auto; padding: 10px">
+                @Html.LabelFor(m => m.ConfirmPassword, new { style = "text-align: left; width: 100%" })
+                <br />
+                @Html.PasswordFor(m => m.ConfirmPassword, new { style = "padding: 10px 20px; border: none; outline: none;" })
+            </div>
+
+
+            <div style="width: fit-content; margin: auto; padding: 10px">
+                <input type="submit" value="Sign up" style="margin: 10px; padding: 10px 25px; border: none; outline: none" />
+
+            </div>
+
+            @if (!ViewData.ModelState.IsValid)
+            {
+                <div style="color: red; padding: 10px;">
+                    Incorrect username or password.
+                </div>
+            }
 
             <div style="width: fit-content; margin: auto; padding: 10px">
                 <a href="" style="color: gray; text-decoration: underline;">Forgot password ?</a>
             </div>
-
-
         </div>
+        }
     </div>
-</section>*@
+</section>
+
+
+@*<section class="about_section layout_padding">
+        <div class="container">
+            <div style="padding: 20px; background: #00c6a9; color: white; margin: auto; text-align: center;">
+                <div style="padding: 10px">
+                    <h1>Authorization page</h1>
+                </div>
+
+                <div style="width: fit-content; margin: auto; padding: 10px">
+                    <label for="username" style="text-align: left; width: 100%">Username</label><br>
+                    <input type="text" name="username" style="padding: 10px 20px; border: none; outline: none;">
+                </div>
+                <div style="width: fit-content; margin: auto; padding: 10px">
+                    <label for="username" style="text-align: left; width: 100%">Password</label><br>
+                    <input type="text" name="username" style="padding: 10px 20px; border: none; outline: none;">
+                </div>
+
+                <div style="width: fit-content; margin: auto; padding: 10px">
+                    <input type="submit" value="Login" style="margin: 10px; padding: 10px 25px; border: none; outline: none">
+                    <input type="submit" value="Sign up" style="margin: 10px; padding: 10px 25px; border: none; outline: none">
+                </div>
+
+                <div style="width: fit-content; margin: auto; padding: 10px">
+                    <a href="" style="color: gray; text-decoration: underline;">Forgot password ?</a>
+                </div>
+
+
+            </div>
+        </div>
+    </section>*@
 
 <!-- end login section -->
 <!-- info section -->
