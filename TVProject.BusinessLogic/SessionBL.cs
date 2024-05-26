@@ -15,8 +15,11 @@ namespace TVProject.BusinessLogic
         {
             return UserLoginAction(data);
         }
+
+        public URegResp UserReg(URegData data)
+        {
+            return UserRegAction(data);
+        }
     }
-   // internal class SessionBL
-   // {
-   // }
+
 }

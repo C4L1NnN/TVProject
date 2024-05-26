@@ -10,5 +10,6 @@ namespace TVProject.BusinessLogic.Interfaces
     public interface ISession
     {
         ULoginResp UserLogin(ULoginData data);
+        URegResp UserReg(URegData data);
     }
 }

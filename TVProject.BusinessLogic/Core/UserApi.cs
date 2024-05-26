@@ -23,6 +23,31 @@ namespace TVProject.BusinessLogic.Core
             return new ULoginResp { Status = true };
 
         }
+
+        internal URegResp UserRegAction(URegData data)
+        {
+            using (var userContext = new UserContext())
+            {
+                // Check for duplicate usernames
+                if (userContext.users.Any(u => u.Username == model.Credential))
+                {
+                    ModelState.AddModelError("Username", "Username already exists.");
+                    return View(model);
+                }
+
+                var user = new UDbTable
+                {
+                    Username = model.Credential,
+                    Password = model.Password,
+                    Email = model.Email,
+                    LastLogin = DateTime.UtcNow,
+                    LasIp = Request.UserHostAddress,
+                };
+                userContext.users.Add(user);
+                userContext.SaveChanges();
+            }
+        }
+
     }
 }
 

@@ -33,28 +33,19 @@ namespace TVProject.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                using (var userContext = new UserContext())
+                URegData data = new URegData
                 {
-                    // Check for duplicate usernames
-                    if (userContext.users.Any(u => u.Username == model.Credential))
-                    {
-                        ModelState.AddModelError("Username", "Username already exists.");
-                        return View(model);
-                    }
+                    Credential = model.Credential,
+                    Password = model.Password,
+                    Email = model.Email,
+                    ConfirmPassword = model.ConfirmPassword,
+                    DataTime = model.DataTime,
+                };
 
-                    var user = new UDbTable
-                    {
-                        Username = model.Credential,
-                        Password = model.Password,
-                        Email = model.Email,
-                        LastLogin = DateTime.UtcNow,
-                        LasIp = Request.UserHostAddress,
-                    };
-                    userContext.users.Add(user);
-                    userContext.SaveChanges();
-
-                    // Redirect or display success message
-                    return RedirectToAction("Index", "Home"); // Example redirect
+                var userReg = _session.UserReg(data);
+                if (userReg.Status)
+                {
+                    return RedirectToAction("Index", "Home");
                 }
             }
             // If invalid, return view with model to display errors
