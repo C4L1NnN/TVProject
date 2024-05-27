@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using TVProject.BusinessLogic.DBModel;
@@ -29,22 +30,23 @@ namespace TVProject.BusinessLogic.Core
             using (var userContext = new UserContext())
             {
                 // Check for duplicate usernames
-                if (userContext.users.Any(u => u.Username == model.Credential))
+                if (userContext.users.Any(u => u.Username == data.Credential))
                 {
-                    ModelState.AddModelError("Username", "Username already exists.");
-                    return View(model);
+                    return new URegResp { Status = false, ErrorMessage = "Username already exists." };
                 }
 
                 var user = new UDbTable
                 {
-                    Username = model.Credential,
-                    Password = model.Password,
-                    Email = model.Email,
+                    Username = data.Credential,
+                    Password = data.Password,
+                    Email = data.Email,
                     LastLogin = DateTime.UtcNow,
-                    LasIp = Request.UserHostAddress,
+                    LasIp = data.LoginIp,
                 };
                 userContext.users.Add(user);
                 userContext.SaveChanges();
+
+                return new URegResp { Status = true };
             }
         }
 

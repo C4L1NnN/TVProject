@@ -33,13 +33,15 @@ namespace TVProject.Web.Controllers
         {
             if (ModelState.IsValid)
             {
+                string ipAddress = Request.UserHostAddress;
+
                 URegData data = new URegData
                 {
                     Credential = model.Credential,
                     Password = model.Password,
                     Email = model.Email,
                     ConfirmPassword = model.ConfirmPassword,
-                    DataTime = model.DataTime,
+                    RegDateTime = model.RegDateTime,
                 };
 
                 var userReg = _session.UserReg(data);
