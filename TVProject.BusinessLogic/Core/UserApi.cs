@@ -41,7 +41,7 @@ namespace TVProject.BusinessLogic.Core
                     Password = data.Password,
                     Email = data.Email,
                     LastLogin = DateTime.UtcNow,
-                    LasIp = data.LoginIp,
+                    RegisterIp = data.RegIp,
                 };
                 userContext.users.Add(user);
                 userContext.SaveChanges();

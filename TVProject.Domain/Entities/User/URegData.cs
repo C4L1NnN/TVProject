@@ -14,7 +14,7 @@ namespace TVProject.Domain.Entities.User
         public string Email { get; set; }
 
         public string ConfirmPassword { get; set; }
-        public string LoginIp { get; set; }
+        public string RegIp { get; set; }
         public DateTime RegDateTime { get; set; }
 
     }
