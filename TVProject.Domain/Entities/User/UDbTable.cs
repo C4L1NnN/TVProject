@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using TVProject.Domain.Enums;
 
 namespace TVProject.Domain.Entities.User
 {
@@ -36,5 +37,7 @@ namespace TVProject.Domain.Entities.User
 
         [StringLength (30)]
         public string RegisterIp { get; set; }
+
+        public URole Level { get; set; }
     }
 }
